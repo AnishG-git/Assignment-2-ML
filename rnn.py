@@ -185,8 +185,8 @@ if __name__ == "__main__":
         print("Validation completed for epoch {}".format(epoch + 1))
         print("Validation accuracy for epoch {}: {}".format(epoch + 1, correct / total))
         validation_accuracy = correct/total
-        delta = 0.05
-        if validation_accuracy + delta < last_validation_accuracy and training_accuracy > last_train_accuracy + delta:
+        slack = 0.05
+        if validation_accuracy + slack < last_validation_accuracy and training_accuracy > last_train_accuracy + slack:
             stopping_condition=True
             print("Training done to avoid overfitting!")
             print("Best validation accuracy is:", last_validation_accuracy)
